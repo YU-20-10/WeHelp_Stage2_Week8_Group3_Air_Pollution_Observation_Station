@@ -21,7 +21,7 @@ export async function renderHeaderAndFooter(){
         window.location.href='/';
     })
 
-    rwdHeader();
+    // rwdHeader();
 }
 
 function rwdHeader(){
