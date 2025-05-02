@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const path = window.location.pathname;
   // console.log(path);
-  if (path === "/") {
+  if (path === "/index.html" | path === "/" ) {
     // console.log("首頁的功能們");
 
     // 渲染台灣地圖
