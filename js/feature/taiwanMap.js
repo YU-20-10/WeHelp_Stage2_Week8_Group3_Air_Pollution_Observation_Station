@@ -46,7 +46,7 @@ function taiwanMap() {
         .attr("width", "100%")
         .attr("height", "100%");
 
-      model.d3.topoData = await d3.json("/static/map/county.topojson");
+      model.d3.topoData = await d3.json("map/county.topojson");
 
       model.d3.geoData = topojson.feature(
         model.d3.topoData,

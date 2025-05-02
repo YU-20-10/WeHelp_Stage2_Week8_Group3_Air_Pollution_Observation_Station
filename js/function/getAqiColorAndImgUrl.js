@@ -131,12 +131,12 @@ export function getAqiColor(gasName, AQIScore) {
 
 export function getAqiImgUrl(AQIScore) {
   if (AQIScore <= 50) {
-    return "../static/image/good.png";
+    return "image/good.png";
   } else if (51 <= AQIScore <= 100) {
-    return "../static/image/soso.png";
+    return "image/soso.png";
   } else if (101 <= AQIScore <= 300) {
-    return "../static/image/bad.png";
+    return "image/bad.png";
   } else {
-    return "../static/image/popo.png";
+    return "image/popo.png";
   }
 }

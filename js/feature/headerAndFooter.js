@@ -1,6 +1,6 @@
 export async function renderHeaderAndFooter(){
     try{
-        const header = await fetch("/static/header.html");
+        const header = await fetch("header.html");
         const html = await header.text();
         document.body.insertAdjacentHTML('afterbegin', html);
     }

@@ -101,7 +101,7 @@ export function renderStationAirDataDom(stationName) {
   // 新增叉叉
   let newCrossImg = document.createElement("img");
   newCrossImg.className = "airData__stationDataHead__cross";
-  newCrossImg.src = "../static/image/cross.png";
+  newCrossImg.src = "image/cross.png";
   document.querySelector(".airData__stationDataHead").appendChild(newCrossImg);
 
   // 渲染空污資料
@@ -130,7 +130,7 @@ export function renderStationAirDataDom(stationName) {
   // discord圖片
   let newDiscordImg = document.createElement("img");
   newDiscordImg.className = "airData__discord__img";
-  newDiscordImg.src = "../static/image/discord.png";
+  newDiscordImg.src = "image/discord.png";
   newDiscordBtn.appendChild(newDiscordImg);
 
   // 監聽discord btn
