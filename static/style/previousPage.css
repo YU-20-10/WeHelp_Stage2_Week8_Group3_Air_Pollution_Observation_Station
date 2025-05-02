@@ -1,0 +1,92 @@
+main{
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+section{
+    max-width: 1280px; 
+    padding-bottom: 40px; 
+    margin: 0 auto;
+}
+
+/* section id="site-search" */
+#site-search{
+    background-color: var(--color-primary-200);
+    border-radius: 24px;
+    margin-top: 24px;
+    padding: 24px 40px;
+}
+
+#site-search > div{
+    margin: 0 0 24px 0;
+    color: var(--color-zinc-700);
+}
+
+.select-county-div,
+.select-site-div,
+.select-subindex-div{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+#site-select,
+#subindex-select{
+    min-height: 36px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+img{
+    width: 60px;
+    height: 60px;
+}
+
+#subindex-select-group{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 4px;
+}
+
+.line {
+    width: 1px;
+    height: 36px;
+    background-color: var(--color-zinc-400);
+    margin: 0 4px;
+}
+
+.select-confirm-div{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+
+
+/* section id="chart-render" */
+#chart-render{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 40px auto;
+    color: var(--color-zinc-700);
+    display: none;
+}
+
+#chart-frame{
+    width: 100%;
+    max-width: 1200px;
+    height: 400px;
+    padding-top: 24px;
+}
+
+#aqiChart{
+    width: 100%;
+    height: 100%;
+}

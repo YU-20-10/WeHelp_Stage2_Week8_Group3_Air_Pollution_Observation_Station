@@ -1,0 +1,258 @@
+/* button-text */
+.btn-text-dark{
+    min-width: 80px;
+    min-height: 36px;
+    padding: 0 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-zinc-700);
+    background-color: unset;
+    max-width: 400px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-text-dark > .mdi{
+    font-size: 20px; 
+    width: 20px;
+    height: 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.btn-text-dark:hover{
+    color: var(--color-zinc-800);
+    background-color: var(--color-zinc900-5);
+}
+
+.btn-text-dark:active{
+    color: var(--color-zinc-800);
+    background-color: var(--color-zinc900-20);
+}
+
+/* button-outline-primary */
+.btn-outline-primary{
+    min-width: 80px;
+    min-height: 36px;
+    padding: 0 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-primary-500);
+    border: 1px solid var(--color-primary-500);
+    background-color: var(--color-white-100);
+    max-width: 400px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.btn-outline-primary > .mdi{
+    font-size: 20px; 
+    width: 20px;
+    height: 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.btn-outline-primary:hover{
+    color: var(--color-primary-600);
+    border: 1px solid var(--color-primary-600);
+    background-color: var(--color-primary-100);
+}
+
+.btn-outline-primary:active{
+    color: var(--color-primary-800);
+    border: 1px solid var(--color-primary-800);
+    background-color: var(--color-primary-200);
+}
+
+/* button-solid-primary */
+.btn-solid-primary-full{
+    width: 100%;
+    min-height: 36px;
+    padding: 0 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--color-primary-500);
+    background-color: var(--color-primary-500);
+    color: var(--color-white-100);
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.btn-solid-primary{
+    min-width: 80px;
+    min-height: 36px;
+    padding: 0 16px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border: 1px solid var(--color-primary-500);
+    background-color: var(--color-primary-500);
+    color: var(--color-white-100);
+    max-width: 400px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.btn-solid-primary-full > .mdi,
+.btn-solid-primary > .mdi{
+    font-size: 20px; 
+    width: 20px;
+    height: 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.btn-solid-primary-full:hover,
+.btn-solid-primary:hover{
+    border: 1px solid var(--color-primary-600);
+    background-color: var(--color-primary-600);
+}
+
+.btn-solid-primary-full:active,
+.btn-solid-primary:active{
+    border: 1px solid var(--color-primary-800);
+    background-color: var(--color-primary-800);
+}
+
+
+/* input and option */
+.input-select{
+    appearance: none; /* 隱藏原生箭頭 */
+    -webkit-appearance: none; /* 針對 Safari */
+    -moz-appearance: none; /* 針對 Firefox */
+    background:url(../image/down-arrow.png) no-repeat right 12px center;
+    background-size: 16px 9px;
+    max-width: 320px;
+    height: 36px;
+    max-height: 150px;
+    border-radius:12px ;
+    padding: 0px 12px;
+    box-sizing: border-box;
+    background-color: var(--color-white-100);
+    border: 1px solid var(--color-zinc-400);
+    display: flex;
+    align-items: center;
+}
+
+.input-select[value="placeholder-select"]{
+    color: var(--color-zinc-200) !important;
+}
+
+.input-select:active{
+    border: 1px solid var(--color-zinc-700);
+}
+
+.input-select:focus{
+    border: 1px solid var(--color-zinc-700);
+}
+
+/* chip */
+.chip{
+    min-width: 80px;
+    min-height: 36px;
+    padding: 0 16px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-primary-500);
+    border: 1px solid var(--color-primary-500);
+    background-color: var(--color-white-100);
+    max-width: 400px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.chip > .mdi{
+    font-size: 20px; 
+    width: 20px;
+    height: 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.chip:hover{
+    color: var(--color-primary-600);
+    border: 1px solid var(--color-primary-600);
+    background-color: var(--color-primary-100);
+}
+
+.chip:active{
+    color: var(--color-primary-800);
+    border: 1px solid var(--color-primary-800);
+    background-color: var(--color-primary-200);
+}
+
+.chip-active{
+    min-width: 80px;
+    min-height: 36px;
+    padding: 0 16px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    color: var(--color-white-100);
+    border: 1px solid var(--color-primary-500);
+    background-color: var(--color-primary-500);
+    max-width: 400px;
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.chip-active > .mdi{
+    font-size: 20px; 
+    width: 20px;
+    height: 20px;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border: none;
+}
+
+.chip-active:hover{
+    color: var(--color-white-100);
+    border: 1px solid var(--color-primary-600);
+    background-color: var(--color-primary-600);
+}
+
+.chip-active:active{
+    color: var(--color-primary-800);
+    color: var(--color-white-100);
+    border: 1px solid var(--color-primary-800);
+    background-color: var(--color-primary-800);
+}

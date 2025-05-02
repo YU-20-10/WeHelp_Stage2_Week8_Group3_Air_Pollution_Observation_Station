@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style/style.css">
+    <script type="module" src="/static/js/main.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/@mdi/font/css/materialdesignicons.min.css" rel="stylesheet">
+    <link rel="icon" href="/static/image/favicon-32X32.png" type="image/png">
+    <title>空氣品質探測站</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- <header></header> -->
+    <main>
+        <section id="site-search">
+            <div class="select-county-div">
+                <label for="county-select" class="text-base-500">縣市</label>
+                <select id="county-select" name="county-select" class="input-select text-base-400">
+                    <option value="placeholder-select" class="input-select-placeholder" disabled selected>請選擇縣市</option>
+                </select>
+            </div>
+            <div class="select-site-div">
+                <p class="text-base-500">探測站</p>
+                <div id="site-select">
+                    <img src="/static/image/loading.gif" alt="">
+                </div>
+            </div>
+            <div class="select-subindex-div">
+                <p class="text-base-500">監測項目</p>
+                <div id="subindex-select-group">
+                    <button id="subindex-select-all" class="text-sm-400 btn-text-dark">全選</button>
+                    <div class="line"></div>
+                    <div id="subindex-select">
+                        <button id="subindex-select-AQI" class="chip text-sm-500 chip-active">AQI 空氣品質指標</button>
+                        <button id="subindex-select-CO" class="chip text-sm-500">CO</button>
+                        <button id="subindex-select-O3" class="chip text-sm-500">O3</button>
+                        <button id="subindex-select-O38" class="chip text-sm-500">O3 8小時</button>
+                        <button id="subindex-select-PM10" class="chip text-sm-500">PM10</button>
+                        <button id="subindex-select-PM25" class="chip text-sm-500">PM2.5</button>
+                        <button id="subindex-select-NO2" class="chip text-sm-500">No2</button>
+                        <button id="subindex-select-SO2" class="chip text-sm-500">So2</button>
+                    </div>
+                </div>
+            </div>
+            <div class="select-confirm-div">
+                <button class="btn-outline-primary" id="confirm-select">
+                    <i class="mdi mdi-magnify"></i>
+                    送出查詢
+                </button>
+            </div>
+        </section>
+        <section id="chart-render">
+            <h3>近七日空氣品質指標</h3>
+            <div id="chart-frame">
+                <canvas id="aqiChart"></canvas>
+            </div>
+        </section>
+    </main>
+    <!-- <footer></footer> -->
+</body>
+</html>

@@ -1,0 +1,504 @@
+
+@media screen and (min-width: 992px) {
+  .airData,
+  .airDataWrapper {
+    width: 40%;
+    height: calc(100vh - 56px - 40px);
+    max-height: 776px;
+    min-height: 400px;
+  }
+}
+
+.display-none {
+  display: none;
+}
+
+.airData,
+.airDataWrapper {
+  width: 100%;
+  max-width: 400px;
+  min-height: 600px;
+  position: relative;
+  margin: auto auto;
+  padding-bottom: 24px;
+}
+
+.airDataWrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.airData__Title {
+  height: 32px;
+  margin-top: 80px;
+  color: var(--color-zinc-700);
+}
+
+.airData__search {
+  width: 100%;
+  height: 76px;
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column; /* 垂直排列元素 */
+  justify-content: space-between; /* 讓第一個元素靠上，最後一個靠下 */
+}
+
+.airDtat__search__title {
+  color: var(--color-zinc-700);
+}
+
+.airData__search__countySelect {
+  appearance: none; /* 隱藏原生箭頭 */
+  -webkit-appearance: none; /* 針對 Safari */
+  -moz-appearance: none; /* 針對 Firefox */
+  background: url(../image/down-arrow.png) no-repeat right 12px center;
+  background-size: 16px 9px;
+  width: 100%;
+  height: 36px;
+  max-height: 150px;
+  border-radius: 12px;
+  padding: 0px 12px;
+  box-sizing: border-box;
+  background-color: var(--color-white-100);
+  border: 1px solid var(--color-zinc-400);
+  display: flex;
+  align-items: center;
+}
+
+.airData__search__countySelect option {
+  background-color: var(--color-white-900);
+  color: var(--color-zinc-700);
+}
+
+.airData__search__countySelect option:hover {
+  background-color: var(--color-zinc900-5);
+  color: var(--color-zinc-700);
+}
+
+.airData__station {
+  width: 100%;
+  height: 300px;
+  max-height: 300px;
+  margin-top: 12px;
+  padding-top: 24px;
+  box-sizing: border-box;
+  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--color-zinc-400);
+  overflow-y: auto;
+}
+
+.airData__station__btn {
+  width: 100%;
+  height: 36px;
+  min-width: 80px;
+  min-height: 36px;
+  border-radius: 12px;
+  border: 1px solid var(--color-primary-500);
+  background-color: var(--color-primary-500);
+  color: var(--color-white-100);
+  cursor: pointer;
+}
+.airData__station__btn:hover {
+  border: 1px solid var(--color-primary-600);
+  background-color: var(--color-primary-600);
+}
+.airData__station__btn:active {
+  border: 1px solid var(--color-primary-800);
+  background-color: var(--color-primary-800);
+}
+
+.airData__stationDataHead {
+  width: 100%;
+  border-radius: 24px 24px 0 0;
+  padding: 12px 24px;
+  box-sizing: border-box;
+}
+
+/* 根據分數顯示背景顏色 */
+.backgroundColor--lightGreen {
+  background-color: var(--color-primary-400);
+}
+.backgroundColor--darkGreen {
+  background-color: var(--color-primary-600);
+}
+.backgroundColor--lightYellow {
+  background-color: var(--color-yellow-400);
+}
+.backgroundColor--darkYellow {
+  background-color: var(--color-yellow-600);
+}
+.backgroundColor--lightRed {
+  background-color: var(--color-red-400);
+}
+.backgroundColor--darkRed {
+  background-color: var(--color-red-600);
+}
+
+/* 根據分數顯示顏色 */
+.color--lightGreen {
+  color: var(--color-primary-400);
+}
+.color--darkGreen {
+  color: var(--color-primary-600);
+}
+.color--lightYellow {
+  color: var(--color-yellow-400);
+}
+.color--darkYellow {
+  color: var(--color-yellow-600);
+}
+.color--lightRed {
+  color: var(--color-red-400);
+}
+.color--darkRed {
+  color: var(--color-red-600);
+}
+
+.airData__stationDataHead__summary {
+  color: var(--color-white-100);
+  display: flex;
+  /* flex-wrap: wrap; */
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  padding: 12px 12px 12px 0;
+}
+
+.stationDataHead__summary__title{
+  min-width: fit-content;
+}
+
+.stationDataHead__summary__status {
+  /* max-width: 160px; */
+  min-width: 108px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+}
+
+.summary__status__img {
+  height: 60px;
+}
+
+.summary__status__AQI {
+  color: var(--color-white-100);
+  padding: 4px 8px;
+  width: 80px;
+}
+
+.status__AQI__score {
+  text-align: center;
+  width: 100%;
+}
+
+.status__AQI__status {
+  text-align: center;
+  width: 100%;
+  /* min-width: 80px; */
+}
+
+.airData__stationDataHead__time {
+  color: var(--color-zinc-100);
+}
+
+.airData__stationDataHead__cross {
+  width: 25px;
+  height: 25px;
+  position: absolute;
+  right: 9.5px;
+  top: 10.5px;
+  cursor: pointer;
+}
+
+/* 空污資訊部分 */
+.airData__content {
+  width: 100%;
+  background-color: var(--color-white-100);
+  overflow-y: scroll;
+  flex: 1; /* 自適應 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.airData__content__item--even {
+  width: 100%;
+  height: 96px;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-zinc-50);
+  border-bottom: 1px solid var(--color-zinc-200);
+}
+
+.airData__content__item--odd {
+  width: 100%;
+  height: 96px;
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  background-color: var(--color-white-100);
+  border-bottom: 1px solid var(--color-zinc-200);
+}
+
+.item__title {
+  width: 80px;
+  height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--color-zinc-700);
+  margin-left: 4px;
+  min-width: 80px;
+  margin-right: 4px;
+}
+
+.item__title__EngTitle {
+  text-align: center;
+  color: var(--color-zinc-700);
+}
+
+.item__title__ChiTitle {
+  text-align: center;
+  color: var(--color-zinc-700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item__data {
+  flex: 1;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.item__data__row {
+  flex: 1;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.item__data__hr {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-zinc-400);
+}
+
+.row__title {
+  flex: 1;
+  text-align: center;
+  color: var(--color-zinc-700);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.row__score {
+  width: 64px;
+  text-align: right;
+}
+
+.row__unit {
+  width: 50px;
+  height: 20px;
+  margin-left: 6px;
+  color: var(--color-zinc-700);
+}
+
+/* Discord按鈕部分 */
+.airData__discord {
+  width: 100%;
+  height: 60px;
+  background-color: var(--color-white-100);
+  border-radius: 0 0 24px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 12px;
+}
+
+.airData__discord__btn {
+  width: 100%;
+  height: 36px;
+  border-radius: 12px;
+  color: var(--color-white-100);
+  cursor: pointer;
+  position: relative;
+}
+
+/* discord按鈕背景顏色 */
+.airData__discord__btn--lightGreen {
+  background-color: var(--color-primary-400);
+  border: 1px solid var(--color-primary-400);
+}
+.airData__discord__btn--lightGreen:hover {
+  background-color: var(--color-primary-500);
+  border: 1px solid var(--color-primary-500);
+}
+.airData__discord__btn--lightGreen:active {
+  background-color: var(--color-primary-800);
+  border: 1px solid var(--color-primary-800);
+}
+
+.airData__discord__btn--darkGreen {
+  background-color: var(--color-primary-600);
+  border: 1px solid var(--color-primary-600);
+}
+.airData__discord__btn--darkGreen:hover {
+  background-color: var(--color-primary-800);
+  border: 1px solid var(--color-primary-800);
+}
+.airData__discord__btn--darkGreen:active {
+  background-color: #046b6d;
+  border: 1px solid #046b6d;
+}
+
+.airData__discord__btn--lightYellow {
+  background-color: var(--color-yellow-400);
+  border: 1px solid var(--color-yellow-400);
+}
+.airData__discord__btn--lightYellow:hover {
+  background-color: var(--color-yellow-500);
+  border: 1px solid var(--color-yellow-500);
+}
+.airData__discord__btn--lightYellow:active {
+  background-color: var(--color-yellow-800);
+  border: 1px solid var(--color-yellow-800);
+}
+
+.airData__discord__btn--darkYellow {
+  background-color: var(--color-yellow-600);
+  border: 1px solid var(--color-yellow-600);
+}
+.airData__discord__btn--darkYellow:hover {
+  background-color: var(--color-yellow-800);
+  border: 1px solid var(--color-yellow-800);
+}
+.airData__discord__btn--darkYellow:active {
+  background-color: #a66626;
+  border: 1px solid #a66626;
+}
+
+.airData__discord__btn--lightRed {
+  background-color: var(--color-red-400);
+  border: 1px solid var(--color-red-400);
+}
+.airData__discord__btn--lightRed:hover {
+  background-color: var(--color-red-500);
+  border: 1px solid var(--color-red-500);
+}
+.airData__discord__btn--lightRed:active {
+  background-color: var(--color-red-800);
+  border: 1px solid var(--color-red-800);
+}
+
+.airData__discord__btn--darkRed {
+  background-color: var(--color-red-600);
+  border: 1px solid var(--color-red-600);
+}
+.airData__discord__btn--darkRed:hover {
+  background-color: var(--color-red-800);
+  border: 1px solid var(--color-red-800);
+}
+.airData__discord__btn--darkRed:active {
+  background-color: #9f4034;
+  border: 1px solid #9f4034;
+}
+
+.airData__discord__img {
+  width: 24px;
+  height: 18.58px;
+  position: absolute;
+  top: 8.67px;
+  left: 16px;
+}
+
+@media(max-width:992px){
+  .airData {
+    max-width: 80%;
+    min-height: fit-content;
+  }
+
+  .airDataWrapper {
+    max-width: 80%;
+  }
+  .airData__Title{
+    margin-top: 0;
+  }
+
+  .airData__search{
+    max-width: 100%;
+  }
+  .airData__search__countySelect {
+    max-width: 100%;
+  }
+  .airData__station {
+    max-width: 100%;
+  }
+}
+
+@media(max-width:595px){
+  .airData,
+  .airDataWrapper {
+    max-width: 95%;
+  }
+  .airData__stationDataHead__summary{
+    flex-direction: column;
+    align-items: baseline;
+    gap:5px;
+    padding: 6px 12px 6px 0;
+  }
+  .stationDataHead__summary__status{
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  .summary__status__img{
+    height: 30px;
+    width: 30px;
+  }
+  .summary__status__AQI{
+    display: flex;
+    align-items: center;
+    gap:5px;
+    width: fit-content;
+  }
+  
+  .status__AQI__score {
+    text-align: center;
+    width: 80px;
+  }
+  
+  .status__AQI__status {
+    text-align: center;
+    width: 100%;
+    /* min-width: 80px; */
+  }
+}
+
+@media (max-width: 415px) {
+  .item__title__EngTitle {
+    font-size: 1.125rem;
+  }
+
+  .item__title__ChiTitle {
+    font-size: 1rem;
+  }
+
+  .row__title {
+    font-size: 0.75rem;
+  }
+  .row__score {
+    font-size: 1.125rem;
+  }
+}
