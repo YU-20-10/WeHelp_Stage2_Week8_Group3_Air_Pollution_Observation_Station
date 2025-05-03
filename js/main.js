@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     await renderHeaderAndFooter();
     console.log("await renderHeaderAndFooter()");
 
-    if ((path === "/index.html") | (path === "/")) {
+    if (path.endsWith("/") || path.endsWith("/index.html")) {
       console.log("/index.html");
       // console.log("首頁的功能們");
 
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.error(error);
   }
 
-  if (path === "/previous") {
+  if (path.endsWith("/previous.html")) {
     const currentLocationData = await getGeolocation(); //最近的監測站和即時 aqi，{sitename: '豐原', county: '臺中市', siteid: '28', aqi: '73'}
     // console.log("歷史監測資料");
     console.log("await getGeolocation()");
