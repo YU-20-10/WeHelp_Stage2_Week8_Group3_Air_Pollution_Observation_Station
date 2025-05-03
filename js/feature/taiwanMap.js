@@ -244,31 +244,35 @@ function taiwanMap() {
   };
   const controller = {
     init: async () => {
-      const main = document.querySelector("main");
-      const container = view.createDiv(main);
-      container.classList.add("taiwan-map-container");
-      const taiwanContainer = view.createDiv(container);
-      taiwanContainer.classList.add("taiwan-map-taiwan");
-      const hint = view.createDiv(container);
-      hint.classList.add("taiwan-map-hint");
-      view.createHint(hint);
-      await view.createTaiwan(taiwanContainer);
-      model.allStationData = await getAirData("total");
-      model.organizeStationData();
-      model.allStationData.forEach((el) => {
-        view.createStation(el, el.status);
-      });
+      try {
+        const main = document.querySelector("main");
+        const container = view.createDiv(main);
+        container.classList.add("taiwan-map-container");
+        const taiwanContainer = view.createDiv(container);
+        taiwanContainer.classList.add("taiwan-map-taiwan");
+        const hint = view.createDiv(container);
+        hint.classList.add("taiwan-map-hint");
+        view.createHint(hint);
+        await view.createTaiwan(taiwanContainer);
+        model.allStationData = await getAirData("total");
+        model.organizeStationData();
+        model.allStationData.forEach((el) => {
+          view.createStation(el, el.status);
+        });
 
-      taiwanContainer.addEventListener("click", async (e) => {
-        e.stopPropagation();
-        if (e.target.dataset.county) {
-          const countyName = e.target.dataset.county;
-          controller.clickHandler(countyName);
-          const countySelect = document.getElementById("countySelect");
-          countySelect.value = countyName;
-          renderCountyStations(countyName);
-        }
-      });
+        taiwanContainer.addEventListener("click", async (e) => {
+          e.stopPropagation();
+          if (e.target.dataset.county) {
+            const countyName = e.target.dataset.county;
+            controller.clickHandler(countyName);
+            const countySelect = document.getElementById("countySelect");
+            countySelect.value = countyName;
+            renderCountyStations(countyName);
+          }
+        });
+      } catch (error) {
+        console.log(error);
+      }
     },
     clickHandler: (county) => {
       const path = d3.select(`path[data-county="${county}"]`);
