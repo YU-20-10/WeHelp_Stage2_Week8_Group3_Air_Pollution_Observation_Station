@@ -18,7 +18,7 @@ export async function renderHeaderAndFooter(){
     document.body.appendChild(footer);
 
     document.querySelector('#header-logo').addEventListener('click', ()=>{
-        window.location.href='/';
+        window.location.href='index.html';
     })
 
     rwdHeader();
