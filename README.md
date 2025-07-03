@@ -16,6 +16,8 @@
 3. 串接 API，來源: 環境部環境資料開放平台開放資料
 4. 串接 Discord Webhook 
 
+![bootcamp project](/gif-image/bootcamp%20project.jpg)
+
 ### 組員
  張兆丞
  廖宜昀

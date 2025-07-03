@@ -171,14 +171,6 @@ function taiwanMap() {
         .attr("stroke-width", 2)
         .each(function (d) {
           d3.select(this).append("title").text(stationData.sitename);
-        })
-        .on("click", function () {
-          const siteName = this.dataset.stationSitename;
-          renderStationAirDataDom(siteName);
-          if (window.innerWidth < 992) {
-            const target = document.querySelector(".airDataWrapper");
-            target.scrollIntoView({ behavior: "smooth" });
-          }
         });
     },
     createCountryName: (d3Select) => {
@@ -241,6 +233,16 @@ function taiwanMap() {
         .style("fill", "var(--color-zinc900-60)")
         .attr("rx", 8);
     },
+    resetTaiwanMap: () => {
+      if (Array.isArray(model.allStationData)) {
+        model.d3.svg.selectAll(".taiwan-map-country-name").remove();
+        model.d3.svg.selectAll(".taiwan-map-name-bg").remove();
+        model.d3.svg.selectAll("*").classed("taiwan-map-select", false);
+        model.allStationData.forEach((el) => {
+          view.createStation(el, el.status);
+        });
+      }
+    },
   };
   const controller = {
     init: async () => {
@@ -255,22 +257,57 @@ function taiwanMap() {
       await view.createTaiwan(taiwanContainer);
       model.allStationData = await getAirData("total");
       model.organizeStationData();
-      model.allStationData.forEach((el) => {
-        view.createStation(el, el.status);
-      });
+      if (Array.isArray(model.allStationData)) {
+        model.allStationData.forEach((el) => {
+          view.createStation(el, el.status);
+        });
+      }
 
       taiwanContainer.addEventListener("click", async (e) => {
         e.stopPropagation();
         if (e.target.dataset.county) {
+          // 如果點擊的是縣市
           const countyName = e.target.dataset.county;
           controller.clickHandler(countyName);
           const countySelect = document.getElementById("countySelect");
           countySelect.value = countyName;
           renderCountyStations(countyName);
+        } else if (e.target.dataset.stationCounty) {
+          // 如果點擊的是觀測站
+          const siteName = e.target.dataset.stationSitename;
+          const county = e.target.dataset.stationCounty;
+          renderCountyStations(county);
+          renderStationAirDataDom(siteName);
+          controller.clickHandler(county);
+          if (window.innerWidth < 992) {
+            const target = document.querySelector(".airDataWrapper");
+            if (target) {
+              target.scrollIntoView({ behavior: "smooth" });
+            }
+          }
+        } else {
+          // 點選的不是地圖也不是觀測站，回復初始狀態
+          view.resetTaiwanMap();
+          // 移除原先選單點選的資料
+          document.getElementById("countySelect").value = "";
+          let airDataDOM = document.getElementById("airDataDom");
+          const oldStationDom = airDataDOM.querySelector(".airData__station");
+          if (oldStationDom) {
+            airDataDOM.removeChild(oldStationDom);
+          }
+          // 如果有已有空汙詳細資料，改成顯示選單
+          const airDataWrapper = document.querySelector(".airDataWrapper");
+          if (airDataWrapper) {
+            airDataDOM.classList.remove("display-none");
+            document.querySelector("main").removeChild(airDataWrapper);
+          }
         }
       });
     },
     clickHandler: (county) => {
+      if (!county) {
+        return;
+      }
       const path = d3.select(`path[data-county="${county}"]`);
       if (path) {
         model.d3.svg.selectAll(".taiwan-map-country-name").remove();
@@ -280,9 +317,11 @@ function taiwanMap() {
         path.attr("class", "taiwan-map-select");
         model.d3.svg.selectAll("circle.taiwan-map-station").remove();
         let stationData = model.stationDataByCountry[county];
-        stationData.forEach(async (el) => {
-          view.createStation(el, el.status);
-        });
+        if (Array.isArray(stationData)) {
+          stationData.forEach(async (el) => {
+            view.createStation(el, el.status);
+          });
+        }
         if (window.innerWidth < 992) {
           let target = document.querySelector(".airData");
           let targetDisplay = target.classList.contains("display-none");
@@ -292,18 +331,14 @@ function taiwanMap() {
           if (!target | targetDisplay) {
             target = document.querySelector(".airDataWrapper");
           }
-          if (summary) {
-            document.querySelector(".airData").classList.remove("display-none");
-            document
-              .querySelector("main")
-              .removeChild(document.querySelector(".airDataWrapper"));
-            target = document.querySelector(".airData");
-          }
           target.scrollIntoView({ behavior: "smooth" });
         }
       } else {
         console.log("county輸入錯誤");
       }
+    },
+    resetTaiwanMap: () => {
+      view.resetTaiwanMap();
     },
   };
 

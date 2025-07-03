@@ -8,6 +8,7 @@ import { renderSearchCounty } from "./feature/renderSearchConty.js";
 import { onStationListClick } from "./feature/onStationListClick.js";
 import { onAirDataDomClick } from "./feature/renderStationAirData.js";
 import { revisePreviousPage } from "./feature/revisePreviousPage.js";
+import { renderStationAirDataDom } from "./feature/renderStationAirData.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   await renderHeaderAndFooter();
@@ -31,7 +32,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     onAirDataDomClick(); //監聽監測站按鈕
 
     const currentLocationData = await getGeolocation();//最近的監測站和即時 aqi，{sitename: '豐原', county: '臺中市', siteid: '28', aqi: '73'}
-
+    //如果偵測到最近的監測站資料，渲染首頁畫面
+    if(currentLocationData){
+      renderStationAirDataDom(currentLocationData["sitename"]);
+      taiwanMap.clickHandler(currentLocationData["county"]);
+    };
     const previousPageBtn = document.getElementById("previous-page-btn");
     previousPageBtn.style.display = "flex";
     previousPageBtn.addEventListener("click", () => {
